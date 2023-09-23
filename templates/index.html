@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mail Classification</title>
+    <!-- start css styling -->
+    <style>
+        .card{
+            position: absolute;
+            left: 75vh;
+            top: 14vh;
+            background-color: rgba(12, 174, 195, 0.074);
+            height: 450px;
+            width: 500px;
+            border-top-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            border-top-right-radius: 4px;
+            border-bottom-left-radius: 4px;
+            box-shadow: 2px 4px 20px  rgba(7, 156, 163, 0.823);
+        }
+        .heading{
+            text-shadow: 1px 1px 2px yellow;
+            text-align: center;
+            font-size: 20px;
+            color: darkorchid;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        label{
+            color: rgb(55, 114, 223);
+            font-size: 38px;
+            position: relative;
+            top: 20px;
+            left: 50px;
+            margin: 4px;
+            text-shadow: 1px 1px 1px white;
+            
+        }
+        #text_input{
+            border-color: rgba(221, 145, 52, 0.5);
+            width: 400px;
+            height: 40px;
+            font-size: 26px;
+            color: rgb(0, 0, 255);
+            margin: 4px;
+            position: relative;
+            top: 25px;
+            left: 50px;
+            margin: 4px;
+            border-radius: 6px;
+            background-color: rgba(0, 0, 0, 0.179);
+        }
+        .button{
+            font-size: 26px;
+            position: relative;
+            top: 50px;
+            left: 200px;
+            margin: 4px;
+            border-radius: 10px;
+            background-color: rgb(32, 210, 32);
+            height: 55px;
+            width: 110px;
+            border-width: 3px;
+            border-color: blue;
+
+
+        }
+        #load{
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 2px;
+            animation: loadanima;
+            animation-duration: 1s;
+        }
+        @keyframes loadanima{
+            0%{
+                width: 0%;
+                background-color: red;
+            }
+            25%{
+                width: 25%;
+                background-color: red;
+            }
+            50%{
+                width: 50%;
+                background-color: red;
+            }
+            75%{
+                width: 75%;
+                background-color: red;
+            }
+            100%{
+                width: 100%;
+            }
+            
+        }
+        body{
+           
+            background-image: url('/static/wave-haikei.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        #result{
+            position: relative;
+            left: 198px;
+            top: 50px;
+            font-size: 20px;
+            color: red;
+            text-shadow: 1px 1px 2px white;
+
+        }
+        #text_input:hover{
+            border-color: rgba(0, 255, 255, 0.644);
+            background-color: rgba(236, 233, 233, 0.873);
+            
+        }
+        .button:hover{
+            background-color: rgba(0, 0, 0, 0.123);
+            border-color: rgba(172, 255, 47, 0.452);
+            box-shadow: 2px 4px 80px 10px rgba(181, 222, 16, 0.747);
+        }
+        .card:hover{
+            transform: scale(1.06);
+        }
+        button{
+            animation: ani 1000ms ease alternate infinite;
+            transition: all 0.1s ease 0.4s;
+        }
+        @keyframes ani{
+            0%{
+                border-bottom-color: aqua;
+                border-top-color: rgba(255, 0, 0, 0.855);
+            }
+            50%{
+                border-left-color: gold;
+                border-right-color: coral;
+            }
+            100%{
+                border-bottom-color: deeppink;
+                border-top-color: rgba(255, 179, 0, 0.815);
+                border-left-color: fuchsia;
+                border-right-color: coral;
+            }
+        }
+        #buttom:active{
+            transform: scale(0.9);
+        }
+    </style>
+    <!-- end css -->
+</head>
+<body>
+    <div class="containet">
+        <div id="load"></div>
+        <div class="card">
+            <div class="heading"><h1>Spam Mail Classification</h1></div>
+            <!-- take input and display result -->
+            <form action="/result" method="post">
+                <div>
+                    <label>Enter Text</label>
+                </div><br>
+                <div>
+                    <input id="text_input" name="message" type="text" placeholder="Text" required="required">
+                </div><br>
+                <div>
+                    <button type="submit" id="buttom" class="button" value="submit">submit</button>
+                </div>
+                <div id="result">
+                    <h1> {{n}} </h1>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
